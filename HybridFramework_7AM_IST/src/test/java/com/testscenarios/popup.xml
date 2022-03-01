@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="popup suite" verbose="2">
+
+<test name="popup" thread-count="4">
+  <classes>
+<class name="com.testscenarios.PopUpHandle22"></class>
+
+</classes>
+</test>
+
+
+
+</suite>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [popup suite]" guice-stage="DEVELOPMENT" verbose="2">
+  <test thread-count="5" name="popup(failed)" verbose="2">
+    <classes>
+      <class name="com.testscenarios.PopUpHandle22">
+        <methods>
+          <include name="popup"/>
+          <include name="beforeClass"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- com.testscenarios.PopUpHandle22 -->
+    </classes>
+  </test> <!-- popup(failed) -->
+</suite> <!-- Failed suite [popup suite] -->

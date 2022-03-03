@@ -2,9 +2,18 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="popup suite" verbose="2">
 
-<test name="popup" thread-count="4">
+<test name="Fb" thread-count="2">
+<parameter name="browser" value="chrome"></parameter>
   <classes>
-<class name="com.testscenarios.PopUpHandle22"></class>
+<class name="com.testscenarios.FB_Login"></class>
+
+</classes>
+</test>
+
+<test name="ttd" thread-count="2">
+<parameter name="browser" value="edge"></parameter>
+  <classes>
+<class name="com.testscenarios.FB_Login"></class>
 
 </classes>
 </test>

@@ -3,9 +3,12 @@ package com.utilities;
 import java.io.File;
 
 
+
+
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -15,9 +18,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 
@@ -135,9 +140,100 @@ public class Commonfunctions extends BaseClass {
    }
      
      
+     public void printAllDropdownValues(By locator) {
+    	 WebElement element = driver.findElement(locator);
+    	 if (element.isDisplayed()) {
+    		 if (element.isEnabled()) {
+    			 Select dropdown = new Select(element);
+    			 List<WebElement> dropdownvalues = dropdown.getOptions();
+				 System.out.println(dropdownvalues.size());
+				 for (WebElement allvalues : dropdownvalues) {
+					 System.out.println(allvalues.getText());
+				}
+    		 }else  {
+				 System.out.println("The element is not enabled");
+    		 }
+			}else {
+				System.out.println("The element is not displayed");
+			}
+    	 
+		}
+   
+    public void  selectCustomiseOptionFromTheDropdownValue(By locator, String visibletext) {
+    	 WebElement element = driver.findElement(locator);
+    	 if (element.isDisplayed()) {
+    		 if (element.isEnabled()) {
+    			 Select dropdown = new Select(element);
+    			 List<WebElement> dropdownvalues = dropdown.getOptions();
+				 System.out.println(dropdownvalues.size());
+				 for (int i = 0; i < dropdownvalues.size(); i++) {
+					 System.out.println(dropdownvalues.get(i).getText());
+					if (dropdownvalues.get(i).getText().equals(visibletext)) {
+						dropdown.selectByIndex(i);
+						break;
+					}
+				} 
+    		 } else { 
+    			 System.out.println("The element is not enabled");
+			}
+    	 }else {
+    		 System.out.println("The element is not displayed");
+		}
+     }
      
-     
+     public void moveToonElement(By locator) {
+    	 Actions actions = new Actions(driver);
+    	 try {
+		   WebElement element = driver.findElement(locator);
+    	   actions.moveToElement(element).build().perform();
+    	 } catch (Exception e) {
+ 			System.out.println("Error in description: " + e.getStackTrace());
+ 		}
+    	 
+    	 
+     }
+      public int iFramesCount() {
+    	  driver.switchTo().defaultContent();
+    	  js=(JavascriptExecutor)driver;
+    	  int numberofFrames = 0;
+    	  numberofFrames = Integer.parseInt(js.executeScript("return window.length").toString());
+    	  System.out.println("No of iframes on this page is:" + numberofFrames);
+    	  return numberofFrames;
+      }
+      
+      public void switchToFramebyInt(int i) {
+    	  driver.switchTo().defaultContent();
+    	  driver.switchTo().frame(i);
+     }
+      
+      public int loopAllFramesForElement(By locator) {
+    	  int elementpresencecount = 0;
+    	  int loop = 0;
+    	  int maxFrameCount = iFramesCount();
+    	  elementpresencecount = driver.findElements(locator).size();
+    	  while (elementpresencecount == 0 && loop<maxFrameCount) {
+    		 try {
+			  switchToFramebyInt(loop);
+    		  elementpresencecount = driver.findElements(locator).size();
+    		  System.out.println("Try LoopAllframesAndReturnWebEL : " + loop + "; ElementpresenceCount: "
+						+ elementpresencecount);
+    		  if (elementpresencecount > 0 || loop>maxFrameCount ) {
+				        break;
+			}
+    			} catch (Exception ex) {
+    				System.out.println("Catch LoopAllframesAndReturnWebEL Old:" + loop + ";" + ex);
+    			}
+		 
+    	  loop++;
+     }
+        return elementpresencecount;
+   }
 }
+     
+     
+     
+     
+
 	
 	
 	

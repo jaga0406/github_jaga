@@ -3,6 +3,7 @@ package com.testscenarios;
 import org.testng.annotations.Test;
 
 
+
 import com.objectrepository.Locators;
 import com.utilities.Commonfunctions;
 
@@ -14,18 +15,24 @@ import org.testng.annotations.Parameters;
 
 import java.io.FileInputStream;
 
+
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 
-public class ClassTemplate extends Commonfunctions  {
+public class Frames extends Commonfunctions  {
 	  
 	   Locators loc = new Locators();
    @Test
      public void f() throws Exception {
 	FileInputStream propertyfilepath = new FileInputStream("./src/test/resources/testdata/inputs.properties");
 	                prop.load(propertyfilepath);               //fileinputstream .load
-	           driver.get(prop.getProperty(""));
+	           driver.get(prop.getProperty("toyota_URL"));
+	           loopAllFramesForElement(loc.downloadbutton);
+	           ClickByAnyLocator(loc.downloadbutton);
+//	           Thread.sleep(3000);
+//	           loopAllFramesForElement(loc.element);
+//	           System.out.println(driver.findElement(loc.element).getText());
   }
   @Parameters("browsername") 
   @BeforeClass

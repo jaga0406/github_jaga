@@ -3,6 +3,8 @@ package com.testscenarios;
 import org.testng.annotations.Test;
 
 
+
+
 import com.objectrepository.Locators;
 import com.utilities.Commonfunctions;
 
@@ -53,8 +55,10 @@ public class FB_Login extends Commonfunctions {
   
   @Test
   public void ttd() {
-	  driver.get(prop.getProperty("ttd_URL"));
-	  implicitwait(10);
+	  driver.get(prop.getProperty("ttd_URL2"));
+	   printAllDropdownValues(loc.ttd_select);
+	   selectCustomiseOptionFromTheDropdownValue(loc.ttd_select, "India");
+	   implicitwait(10); 
   }
   
   

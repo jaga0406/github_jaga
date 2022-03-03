@@ -19,7 +19,13 @@ public class Locators {
     public final By New_tab = By.xpath("//button[@id='tabButton']");
     public final By New_window = By.xpath("//button[@id='windowButton']");
     
+    public final By username = By.id("txtUsername");
+    public final By password = By.id("txtPassword");
     
+    public final By ttd_select = By.xpath("//select[@name='countryS']");
+    public final By zonal = By.name("P-2Alist");
+    public final By element = By.xpath("/html/body/table/tbody/tr[7]/td[5]/span");
     
+    public final By downloadbutton = By.xpath("//*[@id=\'delivery_method\']/div/ul/li[2]/a/div/div");
     
 }

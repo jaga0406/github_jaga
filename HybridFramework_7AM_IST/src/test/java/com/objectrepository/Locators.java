@@ -28,4 +28,18 @@ public class Locators {
     
     public final By downloadbutton = By.xpath("//*[@id=\'delivery_method\']/div/ul/li[2]/a/div/div");
     
+    public final By Ousername = By.id("txtUsername");
+    public final By Opass = By.id("txtPassword");
+    public final By Ologin = By.id("btnLogin");
+    
+    public final By careers = By.xpath("//a[text()='Careers']");
+    public final By searchForJob = By.xpath("(//input[@id='typehead'])[2]");
+    public final By Location = By.xpath("//input[@id='gllocationInput']");
+    public final By SearchButton = By.xpath("(//button[@id='ph-search-backdrop'])[2]");
+    public final By Title = By.xpath("/html/body/div[2]/div[2]/div/div/div/div[2]/section[2]/div/div/div/div[2]/div[2]/ul/li[1]/div[1]/span/a/div/span");
+    public final By Implements = By.xpath("/html/body/div[2]/div[2]/div/div[2]/div/div/div[1]/section/div/div/div[2]/div[2]/ul[1]/li[3]/span");
+    public final By JOBID = By.xpath("//span[@class = 'au-target jobId']");
+    public final By applynow = By.xpath("(//a[@role = 'button'])[3]");
+    public final By back = By.xpath("/html/body/div[2]/div[3]/div/header/div[1]/div/ul/li[2]/a");
+    public final By searchbutton2 = By.xpath("(//button[@type='submit'])[2]");
 }

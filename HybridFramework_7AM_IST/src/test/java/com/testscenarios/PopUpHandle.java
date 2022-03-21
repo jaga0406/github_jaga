@@ -37,7 +37,7 @@ public class PopUpHandle extends Commonfunctions  {
 	   Set<String> allWindowNames = driver.getWindowHandles();
 	   System.out.println(allWindowNames);
 	   Thread.sleep(2000);
-	   for (String abc: allWindowNames) {
+	   for (String abc: allWindowNames) { 
 		     if (!mainWindowName.equalsIgnoreCase(abc)) {
 				driver.switchTo().window(abc);
 				driver.close();

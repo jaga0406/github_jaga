@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 
 
+
 import com.objectrepository.Locators;
 import com.utilities.Commonfunctions;
 
@@ -12,12 +13,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import static org.testng.Assert.assertEquals;
 
 import java.io.FileInputStream;
 import java.util.ArrayList;
 
-import org.openqa.selenium.By;
+
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -27,45 +27,64 @@ public class Assignment extends Commonfunctions {
 	
 	   Locators loc = new Locators();
 	   
-	   String Jobtitle = "Senior Systems Specialist (Testing) in Bangalore, India | Business Development "
-	   		               + "and Commercial at Labcorp";
+	   String Jobtitle = "Test Automation Engineer/Jr. Software Developer in Durham, North Carolina";
 	   
-	   String Description = "Implement processes and methods that result in faster and efficient QA cycle.";		                
-	   String JobID = "Job Id : 61994";
+	   String tasks = "Create test automation scripts for UI applications";
+	   String skills = "Bachelor's degree (or higher) or equivalent in Electrical or Electronics Engineering";
+	   String skills1 = "Automation tools: Selenium, Cucumber/Gherkin, TestNg, Jenkins/CICD pipeline integration";
+	   String JobID = "Job Id : 22-79588";
 	   
    @Test
      public void Fb() throws Exception {
 	FileInputStream propertyfilepath = new FileInputStream("./src/test/resources/testdata/inputs.properties");
 	                prop.load(propertyfilepath);               //fileinputstream .load
-	        driver.get(prop.getProperty("labcorp_URL")); 
+	       driver.get(prop.getProperty("labcorp_URL")); 
 	       implicitwait(10);
 	       ClickByAnyLocator(loc.careers);
 	       implicitwait(10);
+	       
 	       ArrayList<String> AllTabs = new ArrayList<String>(driver.getWindowHandles());
-   	       driver.switchTo().window(AllTabs.get(2));
+   	       driver.switchTo().window(AllTabs.get(1));
 	       SendkeysByAnyLocator(loc.searchForJob, prop.getProperty("Jobtitle"));
-	       SendkeysByAnyLocator(loc.Location, prop.getProperty("jobLocation"));
 	       ClickByAnyLocator(loc.SearchButton);
 	       implicitwait(10);
-	       ClickByAnyLocator(loc.searchbutton2);
+	       
+           ClickByAnyLocator(loc.Title);
 	       implicitwait(10);
-	       ClickByAnyLocator(loc.Title);
-	       implicitwait(10);
+	       
+//		   assertTrue(actualString.contains(expectedString));
+	       
 	       String pagetitle = driver.getTitle();
 	       System.out.println(pagetitle);
-		   Assert.assertEquals(pagetitle, Jobtitle);
-		   loopAllFramesForElement(loc.Implements);
-		   String jlocat = driver.findElement(loc.Implements).getText();
+		   Assert.assertTrue(pagetitle.contains(Jobtitle));
+		   
+		   loopAllFramesForElement(loc.responsibilities);
+		   String jlocat = driver.findElement(loc.responsibilities).getText();
 		   System.out.println(jlocat);
-		   Assert.assertEquals(jlocat, Description);
-		   loopAllFramesForElement(loc.JOBID);
+		   Assert.assertTrue(jlocat.contains(tasks));
+		   
+		   loopAllFramesForElement(loc.general);
+		   String degree = driver.findElement(loc.general).getText();
+		   System.out.println(degree);
+		   Assert.assertTrue(degree.contains(skills));
+		   
+		   loopAllFramesForElement(loc.technical);
+		   String automation = driver.findElement(loc.technical).getText();
+		   System.out.println(automation);
+		   Assert.assertTrue(automation.contains(skills1));
+		   
+           loopAllFramesForElement(loc.JOBID);
 		   String id = driver.findElement(loc.JOBID).getText();
 		   System.out.println(id);
 		   Assert.assertEquals(id, JobID);
+		   
 		   loopAllFramesForElement(loc.applynow);
 		   ClickByAnyLocator(loc.applynow);
+		   
 		   ArrayList<String> AllTab = new ArrayList<String>(driver.getWindowHandles());
-   	       driver.switchTo().window(AllTab.get(3));
+   	       driver.switchTo().window(AllTab.get(2));
+   	       
+   	       loopAllFramesForElement(loc.back);
    	       ClickByAnyLocator(loc.back);
    	       implicitwait(10);
 	       

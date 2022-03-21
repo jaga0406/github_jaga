@@ -43,5 +43,8 @@ public class Locators {
     public final By JOBID = By.xpath("//span[@class = 'au-target jobId']");
     public final By applynow = By.xpath("(//a[@role = 'button'])[3]");
     public final By back = By.xpath("(//button[@type = 'button'])[2]");
+    
+    public final By calculator = By.xpath("(//span[@class = 'icon icon-fin-calculator'])[9]");
+    public final By car = By.xpath("//select[@id = 'codeweaversModels']");
  
 }

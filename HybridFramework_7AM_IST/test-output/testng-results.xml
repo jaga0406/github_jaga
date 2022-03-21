@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-03-21T14:13:31 IST" name="Default suite" finished-at="2022-03-21T14:14:07 IST" duration-ms="35618">
+  <suite started-at="2022-03-21T14:53:23 IST" name="Default suite" finished-at="2022-03-21T14:53:48 IST" duration-ms="25076">
     <groups>
     </groups>
-    <test started-at="2022-03-21T14:13:31 IST" name="Default test" finished-at="2022-03-21T14:14:07 IST" duration-ms="35618">
-      <class name="com.testscenarios.Assignment">
-        <test-method is-config="true" signature="beforeClass(java.lang.String)[pri:0, instance:com.testscenarios.Assignment@2e8c1c9b]" started-at="2022-03-21T14:13:31 IST" name="beforeClass" finished-at="2022-03-21T14:13:37 IST" duration-ms="5590" status="PASS">
+    <test started-at="2022-03-21T14:53:23 IST" name="Default test" finished-at="2022-03-21T14:53:48 IST" duration-ms="25076">
+      <class name="com.testscenarios.ToyotaAsst">
+        <test-method is-config="true" signature="beforeClass(java.lang.String)[pri:0, instance:com.testscenarios.ToyotaAsst@2e8c1c9b]" started-at="2022-03-21T14:53:23 IST" name="beforeClass" finished-at="2022-03-21T14:53:29 IST" duration-ms="5600" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,26 +18,26 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method signature="Fb()[pri:0, instance:com.testscenarios.Assignment@2e8c1c9b]" started-at="2022-03-21T14:13:37 IST" name="Fb" finished-at="2022-03-21T14:14:06 IST" duration-ms="29114" status="PASS">
+        <test-method signature="Fb()[pri:0, instance:com.testscenarios.ToyotaAsst@2e8c1c9b]" started-at="2022-03-21T14:53:29 IST" name="Fb" finished-at="2022-03-21T14:53:47 IST" duration-ms="18454" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Fb -->
-        <test-method is-config="true" signature="TakeScreenshotofEachMethod(org.testng.ITestResult)[pri:0, instance:com.testscenarios.Assignment@2e8c1c9b]" started-at="2022-03-21T14:14:06 IST" name="TakeScreenshotofEachMethod" finished-at="2022-03-21T14:14:06 IST" duration-ms="205" status="PASS">
+        <test-method is-config="true" signature="TakeScreenshotofEachMethod(org.testng.ITestResult)[pri:0, instance:com.testscenarios.ToyotaAsst@2e8c1c9b]" started-at="2022-03-21T14:53:47 IST" name="TakeScreenshotofEachMethod" finished-at="2022-03-21T14:53:48 IST" duration-ms="335" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Fb status=SUCCESS method=Assignment.Fb()[pri:0, instance:com.testscenarios.Assignment@2e8c1c9b] output={null}]]]>
+                <![CDATA[[TestResult name=Fb status=SUCCESS method=ToyotaAsst.Fb()[pri:0, instance:com.testscenarios.ToyotaAsst@2e8c1c9b] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TakeScreenshotofEachMethod -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.testscenarios.Assignment@2e8c1c9b]" started-at="2022-03-21T14:14:06 IST" name="afterClass" finished-at="2022-03-21T14:14:07 IST" duration-ms="678" status="PASS">
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.testscenarios.ToyotaAsst@2e8c1c9b]" started-at="2022-03-21T14:53:48 IST" name="afterClass" finished-at="2022-03-21T14:53:48 IST" duration-ms="656" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- com.testscenarios.Assignment -->
+      </class> <!-- com.testscenarios.ToyotaAsst -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

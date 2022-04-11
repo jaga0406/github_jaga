@@ -1,0 +1,12 @@
+2022-04-09 17:12:14,442 INFO  [Log4jConfigurators] This is a info 
+2022-04-09 17:12:14,442 WARN  [Log4jConfigurators] This is a warning 
+2022-04-09 17:12:14,442 ERROR [Log4jConfigurators] This is a error 
+2022-04-09 17:12:14,442 FATAL [Log4jConfigurators] This is a fatal 
+2022-04-09 17:12:28,637 INFO  [Log4jConfigurators] This is a info 
+2022-04-09 17:12:28,638 WARN  [Log4jConfigurators] This is a warning 
+2022-04-09 17:12:28,638 ERROR [Log4jConfigurators] This is a error 
+2022-04-09 17:12:28,638 FATAL [Log4jConfigurators] This is a fatal 
+2022-04-09 17:12:39,298 INFO  [Log4jConfigurators] This is a info 
+2022-04-09 17:12:39,298 WARN  [Log4jConfigurators] This is a warning 
+2022-04-09 17:12:39,298 ERROR [Log4jConfigurators] This is a error 
+2022-04-09 17:12:39,299 FATAL [Log4jConfigurators] This is a fatal 

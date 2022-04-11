@@ -3,7 +3,7 @@ package com.testscenarios;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 
-
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -33,12 +33,13 @@ public class ToyotaAsst extends Commonfunctions {
 	       
 	       
 	       ArrayList<String> AllTabs = new ArrayList<String>(driver.getWindowHandles());
-   	       driver.switchTo().window(AllTabs.get(1));
+   	       driver.switchTo().window(AllTabs.get(2));
    	       implicitwait(10);
    	       loopAllFramesForElement(loc.car);
    	       Select yourcar = new Select(driver.findElement(loc.car));
    	       yourcar.selectByVisibleText("Corolla");
-   	       
+   	       String details = driver.findElement(By.xpath("//*[@id = 'codeweaversFinanceTab0']/child::div")).getText();
+   	       System.out.println(details);
    	       Thread.sleep(5000);
    	  }
 	

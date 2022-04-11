@@ -46,5 +46,19 @@ public class Locators {
     
     public final By calculator = By.xpath("(//span[@class = 'icon icon-fin-calculator'])[9]");
     public final By car = By.xpath("//select[@id = 'codeweaversModels']");
- 
+    
+    public final By clickcnd = By.cssSelector("#regdob");
+    public final By year = By.xpath("(//*[@class = 'datepick-month-year'])[2]");
+    public final By month = By.xpath("(//*[@class = 'datepick-month-year'])[1]"); 
+    public final By date = By.xpath("//table/tbody/tr[4]/td[4]/a");
+    public final By country = By.xpath("//*[@name = 'countryS']");
+    public final By address = By.xpath("//*[@name = 'address1']");
+    
+    public final By button = By.xpath("//*[@class = 'btn btn-primary']");
+    public final By validate = By.cssSelector("#content > p");
+    
+    
+    
+    
+    
 }

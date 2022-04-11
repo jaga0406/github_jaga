@@ -3,14 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.testscenarios.ToyotaAsst">
+      <class name="com.testscenarios.Report_Extent">
         <methods>
-          <include name="Fb"/>
-          <include name="afterClass"/>
           <include name="beforeClass"/>
-          <include name="TakeScreenshotofEachMethod"/>
+          <include name="openwiki"/>
+          <include name="afterClass"/>
+          <include name="opengoogle"/>
+          <include name="openbing"/>
         </methods>
-      </class> <!-- com.testscenarios.ToyotaAsst -->
+      </class> <!-- com.testscenarios.Report_Extent -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

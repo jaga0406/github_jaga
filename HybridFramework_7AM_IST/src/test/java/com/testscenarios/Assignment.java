@@ -23,13 +23,12 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 
-public class Assignment extends Commonfunctions {
+public class Assignment extends Commonfunctions { 
 	
 	   Locators loc = new Locators();
 	   
 	   String Jobtitle = "Test Automation Engineer/Jr. Software Developer in Durham, North Carolina";
-	   
-	   String tasks = "Create test automation scripts for UI applications";
+       String tasks = "Create test automation scripts for UI applications";
 	   String skills = "Bachelor's degree (or higher) or equivalent in Electrical or Electronics Engineering";
 	   String skills1 = "Automation tools: Selenium, Cucumber/Gherkin, TestNg, Jenkins/CICD pipeline integration";
 	   String JobID = "Job Id : 22-79588";
@@ -44,15 +43,13 @@ public class Assignment extends Commonfunctions {
 	       implicitwait(10);
 	       
 	       ArrayList<String> AllTabs = new ArrayList<String>(driver.getWindowHandles());
-   	       driver.switchTo().window(AllTabs.get(1));
+   	       driver.switchTo().window(AllTabs.get(2));
 	       SendkeysByAnyLocator(loc.searchForJob, prop.getProperty("Jobtitle"));
 	       ClickByAnyLocator(loc.SearchButton);
 	       implicitwait(10);
 	       
            ClickByAnyLocator(loc.Title);
 	       implicitwait(10);
-	       
-//		   assertTrue(actualString.contains(expectedString));
 	       
 	       String pagetitle = driver.getTitle();
 	       System.out.println(pagetitle);
@@ -82,7 +79,7 @@ public class Assignment extends Commonfunctions {
 		   ClickByAnyLocator(loc.applynow);
 		   
 		   ArrayList<String> AllTab = new ArrayList<String>(driver.getWindowHandles());
-   	       driver.switchTo().window(AllTab.get(2));
+   	       driver.switchTo().window(AllTab.get(3));
    	       
    	       loopAllFramesForElement(loc.back);
    	       ClickByAnyLocator(loc.back);

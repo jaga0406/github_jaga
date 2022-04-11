@@ -5,15 +5,21 @@ import java.io.File;
 
 
 
+
+
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.function.Function;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -22,8 +28,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.ITestResult;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -31,6 +40,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public class Commonfunctions extends BaseClass {
+	
+	public Commonfunctions() {
+		File f = new File("./screenshots");
+		if (f.exists()) {
+			System.out.println("system has screenshots folder already...");
+		}else {
+			f.mkdir();
+			System.out.println("system has created a new screenshot folder...");
+		}
+	}
 	
 	
 	public void chromebrowserlaunch() throws Exception {
@@ -101,10 +120,9 @@ public class Commonfunctions extends BaseClass {
 	
 	 public void explicitlyWaitForElementToBeClickable(By locator) {
 		 WebElement LoginButton = driver.findElement(locator);
-		 WebDriverWait ww =  new WebDriverWait(driver, Duration.ofSeconds(25));    //explicitwait
+		 WebDriverWait ww =  new WebDriverWait(driver, Duration.ofSeconds(20));    //explicitwait
 		 ww.until(ExpectedConditions.elementToBeClickable(LoginButton));
 	 }
-
 
      public void implicitwait(int time) {
     	 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(time));
@@ -228,7 +246,60 @@ public class Commonfunctions extends BaseClass {
      }
         return elementpresencecount;
    }
-}
+   
+      public void getSelectedOption(By locator) {
+    	  Select select = new Select(driver.findElement(locator));
+    	  WebElement options = select.getFirstSelectedOption();
+    	  String defaultItem = options.getText();
+    	  System.out.println(defaultItem);
+      }
+      
+      public void selectByVisibleText(By locater, String visibleText) {
+
+  		WebElement element = driver.findElement(locater);
+  		if (element.isDisplayed()) {
+  			if (element.isEnabled()) {
+  				Select dropdown = new Select(element);
+  				dropdown.selectByVisibleText(visibleText);
+  			} else {
+  				System.out.println("The webelement is NOT Enabled, please check**************");
+  			}
+  		} else {
+  			System.out.println("The webelement is NOT displayed, please check**************");
+  		}
+
+  	}
+      
+      public void assertByElementText(By locator, String expectedText) {
+    	  WebElement element = driver.findElement(locator);
+  		try {
+  			String ActualMsg = element.getText();
+  			String ExpectedMsg = expectedText;
+  			Assert.assertEquals(ActualMsg, ExpectedMsg);
+  			System.out.println("************Assertion Done**********");
+  		} catch (StaleElementReferenceException e) {
+  			System.out.println("Element - " + element + " is not attached to the page document " + e.getStackTrace());
+  		} catch (NoSuchElementException e) {
+  			System.out.println("Element " + element + " was not found in DOM" + e.getStackTrace());
+  		} catch (Exception e) {
+  			System.out.println("Unable to find element " + e.getStackTrace());
+  		}
+  	}
+     public void fluentwait(final WebElement El)  {
+      Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+			  .withTimeout(Duration.ofSeconds(30))
+			  .pollingEvery(Duration.ofSeconds(2))
+			  .ignoring(NoSuchElementException.class);
+
+		WebElement visible =  wait.until(new Function<WebDriver, WebElement>() {
+	     public WebElement apply(WebDriver driver) {
+	    	        return El;
+			 }
+	 });
+		
+     }  
+  
+ }
      
      
      
